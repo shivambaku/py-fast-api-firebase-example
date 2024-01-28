@@ -2,7 +2,12 @@ services:
   server:
     environment:
       - PORT=8000
+      - GOOGLE_APPLICATION_CREDENTIALS=/gcp/serviceAccountKey.json
+    env_file:
+      - .env
     build:
       context: .
     ports:
       - 8000:8000
+    volumes:
+      - ./serviceAccountKey.json:/gcp/serviceAccountKey.json:ro
