@@ -8,4 +8,4 @@ test:
 	@pipenv run pytest
 
 docker:
-	@docker compose up --build
+	@pipenv requirements > requirements.txt && docker compose up --build
